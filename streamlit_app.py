@@ -6,7 +6,7 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-
+os.environ["API_KEY"] = st.secrets['API_KEY']
 api_key = os.getenv("API_KEY")
 
 # Retrieve the API key from the environment variable
