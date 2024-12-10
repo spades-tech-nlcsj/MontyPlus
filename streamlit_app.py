@@ -17,7 +17,7 @@ API_KEY = os.getenv("API_KEY")
 
 
 def load_icon():
-    img = Image.open("Data/montyface.png")
+    img = Image.open("data/montyface.png")
     return img
 
 # Configure the Generative AI model
@@ -33,13 +33,13 @@ generation_config = {
 # Read the text instruction file
 
 if "message_history" not in st.session_state:
-    text_read1 = open("Data/schooldata.txt")
+    text_read1 = open("data/schooldata.txt")
     text_instr1 = text_read1.read()
 
-    text_read2 = open("Data/societydata.txt")
+    text_read2 = open("data/societydata.txt")
     text_instr2 = text_read2.read()
 
-    text_read3 = open("Data/staffdata.txt")
+    text_read3 = open("data/staffdata.txt")
     text_instr3 = text_read3.read()
 
     st.session_state.message_history = [
