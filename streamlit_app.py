@@ -2,6 +2,7 @@ import streamlit as st
 from PIL import Image
 import google.generativeai as genai
 import os
+import base64
 from google.generativeai.types import HarmCategory, HarmBlockThreshold
 from dotenv import load_dotenv
 
@@ -13,10 +14,12 @@ api_key = os.getenv('API_KEY')
 # Retrieve the API key from the environment variable
 API_KEY = os.getenv('API_KEY')
 
-# Function to load custom CSS
-def load_icon():
-    img = Image.open("data/montyface.png")
-    return img
+# Function to load and encode the icon as base64
+def load_icon_base64():
+    img_path = "data/montyface.png"
+    with open(img_path, "rb") as img_file:
+        b64_string = base64.b64encode(img_file.read()).decode("utf-8")
+    return b64_string
 
 # Configure the Generative AI model
 genai.configure(api_key=API_KEY)
@@ -83,9 +86,10 @@ def right_aligned_message(message):
     )
 
 def left_aligned_message(message):
+    bot_icon = load_icon_base64()
     st.markdown(
         f'<div style="display: flex; align-items: center; margin-bottom: 10px;">'
-        f'<img src="data:image/png;base64,{load_icon().tobytes().hex()}" style="width: 40px; height: 40px; margin-right: 10px;" alt="Bot Icon">'
+        f'<img src="data:image/png;base64,{bot_icon}" style="width: 40px; height: 40px; margin-right: 10px;" alt="Bot Icon">'
         f'<div style="background-color: #364f6b; white-space: pre-wrap; color: #E6E6FA; text-align: left; padding:10px; border-radius:16px;">{message}</div>'
         f'</div>',
         unsafe_allow_html=True
