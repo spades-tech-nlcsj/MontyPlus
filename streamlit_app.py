@@ -87,7 +87,7 @@ def left_aligned_message(message):
 
 # Streamlit UI
 st.title("Monty+")
-st.text("Powered by the COSMOS Society")
+st.text("By the Computer Research Branch")
 if 'messages' not in st.session_state:
     st.session_state.messages = []
 # Initialize session state messages if not already initialized
