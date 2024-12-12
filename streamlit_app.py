@@ -84,7 +84,7 @@ def right_aligned_message(message):
 
 def left_aligned_message(message):
     st.markdown(
-        f'<div style="background-color: #252850; white-space: pre-wrap; color: #E6E6FA; text-align: left; padding:10px; border-radius:16px;">{message}</div>',
+        f'<div style="background-color: #364f6b; white-space: pre-wrap; color: #E6E6FA; text-align: left; padding:10px; border-radius:16px;">{message}</div>',
         unsafe_allow_html=True
     )
 
@@ -103,8 +103,8 @@ for message in st.session_state.messages:
         # Right-align user messages
         right_aligned_message(message['parts'])
     else:
-        # Display assistant messages in default chat style
-        st.chat_message(message['role'], avatar=load_icon()).markdown(message['parts'])
+        # Display assistant messages with a distinct style
+        left_aligned_message(message['parts'])
 
 # Get user input
 prompt = st.chat_input("Chat with Monty+")
@@ -118,6 +118,6 @@ if prompt:
 
     response = chat_session.send_message(prompt)
 
-    st.chat_message('assistant', avatar=load_icon()).markdown(response.text)
+    left_aligned_message(response.text)
     st.session_state.message_history.append({"role": "assistant", "parts": response.text})
     st.session_state.messages.append({"role": "assistant", "parts": response.text})
