@@ -6,6 +6,7 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
+#fixes previous issue of API key being public
 os.environ['API_KEY'] = st.secrets['API_KEY']
 api_key = os.getenv('API_KEY')
 
@@ -44,7 +45,7 @@ if "message_history" not in st.session_state:
 
     st.session_state.message_history = [
             {"role": "user", "parts": "give your answers based on the data you have been given. it doesn't matter if the data is not up to date, just give the answers from the data you have"},
-            {"role": "user", "parts" : "Your name is Monty and you were created by the COSMOS Society."},
+            {"role": "user", "parts" : "Your name is MontyPlus and you were created by the COSMOS Society."},
             {"role": "user", "parts": "YOU ARE A FRIEND TO THE USER."},
             {"role": "user", "parts": "give your answers based on the data you have been given. it doesn't matter if the data is not up to date, just give the answers from the data you have"},
             {"role": "user", "parts": "unless stated otherwise, assume every question is about NLCS Jeju."},
@@ -79,7 +80,7 @@ def left_aligned_message(message):
     )
 
 # Streamlit UI
-st.title("Monty AI")
+st.title("MontyPlus AI")
 st.text("Powered by the COSMOS Society")
 if 'messages' not in st.session_state:
     st.session_state.messages = []
@@ -94,7 +95,7 @@ for message in st.session_state.messages:
         st.chat_message(message['role'],avatar=load_icon()).markdown(message['parts'])
 
 # Get user input
-prompt = st.chat_input("Chat with Monty")
+prompt = st.chat_input("Chat with MontyPlus")
 
 # Handle user input
 if prompt:
