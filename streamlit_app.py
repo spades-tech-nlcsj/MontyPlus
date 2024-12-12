@@ -78,13 +78,13 @@ chat_session = model.start_chat(
 # Function to display right-aligned message
 def right_aligned_message(message):
     st.markdown(
-        f'<div style="white-space: pre-wrap; color: #000000; text-align: right; padding:10px; border-radius:16px;">{message}</div>',
+        f'<div style="white-space: pre-wrap; color: #FFFFFF; text-align: right; padding:10px; border-radius:16px;">{message}</div>',
         unsafe_allow_html=True
     )
 
 def left_aligned_message(message):
     st.markdown(
-        f'<div style="white-space: pre-wrap; color: #000000; text-align: left; padding:10px; border-radius:16px;">{message}</div>',
+        f'<div style="white-space: pre-wrap; color: #FFFFFF; text-align: left; padding:10px; border-radius:16px;">{message}</div>',
         unsafe_allow_html=True
     )
 
