@@ -94,14 +94,14 @@ chat_session = model.start_chat(
 # Function to display right-aligned message
 def right_aligned_message(message):
     st.markdown(
-        f'<div style="background-color: #252850; white-space: pre-wrap; color: #E6E6FA; text-align: right; padding:10px; border-radius:16px; margin-bottom: 10px; display: inline-block; max-width: 70%; float: right; clear: both;">{message}</div>',
+        f'<div style="background-color: #252850; white-space: pre-wrap; color: #E6E6FA; text-align: right; padding:10px; border-radius:16px; margin-bottom: 15px; display: inline-block; max-width: 70%; float: right; clear: both;">{message}</div>',
         unsafe_allow_html=True
     )
 
 def left_aligned_message(message):
     bot_icon = load_icon_base64()
     st.markdown(
-        f'<div style="display: flex; align-items: center; margin-bottom: 10px; clear: both;">'
+        f'<div style="display: flex; align-items: center; margin-bottom: 15px; clear: both;">'
         f'<img src="data:image/png;base64,{bot_icon}" style="width: 40px; height: 40px; margin-right: 10px;" alt="Bot Icon">'
         f'<div style="background-color: #364f6b; white-space: pre-wrap; color: #E6E6FA; text-align: left; padding:10px; border-radius:16px; display: inline-block; max-width: 70%;">{message}</div>'
         f'</div>',
@@ -109,7 +109,20 @@ def left_aligned_message(message):
     )
 
 # Streamlit UI
-st.markdown("<style>body {background-color: #1A1A2E; color: #E6E6FA;} .stTextInput > div > input {border: 1px solid #364f6b; border-radius: 4px;} .stTextInput input {color: #1A1A2E;}</style>", unsafe_allow_html=True)
+st.markdown("""<style>
+body {
+    background-color: #1A1A2E;
+    color: #E6E6FA;
+}
+.stTextInput > div > input {
+    border: 2px solid #364f6b;
+    border-radius: 4px;
+    padding: 8px;
+}
+.stTextInput input {
+    color: #1A1A2E;
+}
+</style>""", unsafe_allow_html=True)
 st.title("Monty Blue")
 st.text("By the Computer Research Branch")
 
